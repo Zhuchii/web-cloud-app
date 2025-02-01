@@ -1,0 +1,11 @@
+{
+    "email": {
+        "smtp_server": "El servidor smtp aqui",
+        "smtp_port": "El puerto por el que se enviaran los correos",
+        "smtp_user": "El mail que enviara los correos",
+        "smtp_password": "La app key para autenticarse en la cuenta de correo y enviar los mails"
+    },
+    "app": {
+        "secret_key": "Clave de tu app (esta se utilizara para generar tokens entre otras funcionalidades)"
+    }
+}
