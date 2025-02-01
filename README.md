@@ -39,5 +39,5 @@ python3 app.py
 O bien puedes usar gunicorn, para esto solo tendras que instalar guvicorn y ejecutarlo con los siguientes comandos
 ```
 pip install gunicorn
-guvicorn app:app
+gunicorn app:app
 ```
