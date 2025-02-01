@@ -1,6 +1,7 @@
 let toggle = document.getElementById("toggle");
 let sign = document.getElementById("sign");
 let login = document.getElementById("login");
+var control = 0;
 
 function toggle_animation(){
     if (control==0){
@@ -30,6 +31,7 @@ function toggle_animation(){
     tl.to(".Switch", 0.5,{
         innerText: "Iniciar Sesion",
     }, "-=0.5");
+    control = 1;
 }
 else{
     var tl = new TimelineLite();
@@ -58,6 +60,7 @@ else{
     tl.to(".Switch", 0.5,{
         innerText: "Crear Cuenta",
     }, "-=0.5");
+    control = 0;
 }
 }
 
