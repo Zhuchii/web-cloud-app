@@ -36,8 +36,8 @@ Para ejecutar la app puedes simplemente ejecutar el archivo de python
 python3 app.py
 ```
 
-O bien puedes usar guvicorn, para esto solo tendras que instalar guvicorn y ejecutarlo con los siguientes comandos
+O bien puedes usar gunicorn, para esto solo tendras que instalar guvicorn y ejecutarlo con los siguientes comandos
 ```
-pip install guvicorn
+pip install gunicorn
 guvicorn app:app
 ```
