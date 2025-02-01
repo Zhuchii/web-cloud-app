@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TimelineLite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/plugins/CSSPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenLite.min.js"></script>
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/codemirror.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/mode/javascript/javascript.min.js"></script>
+    <link href="https://unpkg.com/filepond/dist/filepond.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/filepond/dist/filepond.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/panel.css') }}">
+    <title>Cloud</title>
+
+</head>
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+<body>
+    <div class="barra_lateral" id="barra_lateral">
+        <div style="display: flex; align-content: center;">
+            <a href="#"><img class="logo" src="{{ url_for('static', filename='images/cloud_server.webp') }}" alt=""></a>
+            <p class="nombre_emp">Cloud</p>
+        </div>
+        <ul class="barra_menu" id="barra_menu">
+            <li class="effect_arriba" data-click="NOCLICKEABLE"></li>
+            <li class="activo"><a onclick="swap_dash()" href="#" data-apartado="Dashboard" ><i class='bx bxs-dashboard' style='color:#430268'></i>Dashboard</a></li>
+            <li class="effect_abajo"><a onclick="swap_store()" href="#" data-apartado="Store" ><i class='bx bxs-store-alt' style='color:#430268' ></i>Store</a></li>
+            <li><a href="#" data-apartado="Support" ><i class='bx bx-support' style='color:#430268' ></i>Support</a></li>
+            <li><a href="#" data-apartado="Settings" ><i class='bx bxs-cog' style='color:#430268'></i>Settings</a></li>
+            <li data-click="NOCLICKEABLE"></li>
+            <div class="empty_box"></div>
+            <li><a href="{{ url_for('logout') }}" style='color:rgb(151, 0, 0)'><i class='bx bx-log-out' style='color:rgb(151, 0, 0)'></i>Log out</a></li>
+            <li data-click="NOCLICKEABLE"></li>
+            <div class="progress-bar_div">
+                <div id="progress-bar-container" >
+                    <div id="progress-bar"></div>
+                </div>
+                <p id="espacio_disponible">Espacio usado: 0/0</p>
+            </div>
+        </ul>
+    </div>
+    <div class="todo">
+        <header>
+            <i onclick="nav_alternar()" class='bx bx-menu' style='color:#430268' ></i>
+            <form action="" style="margin-right: auto;height: 100%;display: flex;align-content: center;justify-content: center;margin max-width: 400px; width:100%;">
+                <input placeholder="Search..." type="text" name="" class="search_input" id="">
+                <button class="search_submit"><a href="#"><i class="fa-solid fa-magnifying-glass" style="color: #ffffff; font-size: 19px;"></i></a></button>
+            </form>
+            <button class="upload_boton" onclick="mostrar_upload()"><a href="#"><i class='bx bxs-cloud-upload' style='color:#ffffff'></i></a></button>
+        </header>
+        <div id="seccion">
+            <div style="display: flex;">
+                <h2 class="rutass" style="color: #373737" id="mostrar_ruta" data-ruta="{{ruta}}">{{ (ruta).replace(user, "Home") }}</h2>
+                <button class="crear_carpeta" onclick="crear_carpeta()"><a href="#" style="display:flex; color: #373737;"><i class="fa-regular fa-square-plus"></i>Crear carpeta</a></button>
+            </div>
+            <button class="atras" onclick="ir_atras()"><a class="atras" href="#"><i class="fa-solid fa-arrow-left-long" style="color: black;"></i>Atras</a></button>
+            <div style="display: flex; align-content:center; justify-content: center; mask-image: linear-gradient(to right, transparent 0%, #eee 50%, transparent 100%);">
+                <hr class="hr_atras">
+            </div>
+            {% include 'components/storage.html' %}
+            {% include 'components/store.html' %}
+        </div>
+    </div>
+    {% include 'components/popups.html' %}
+
+
+<script>
+    var token = "{{token}}"
+    {{script | safe }}
+</script>
+</body>
+</html>

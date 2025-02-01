@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TimelineLite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/plugins/CSSPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenLite.min.js"></script>
+    <link rel="stylesheet" 
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Login</title>
+</head>
+<body>
+    <div class="contenedor_1" id="contenedor_1">
+        <div class="from_c Signup" id="sign">
+            <form action="/validar_signup" method="POST" onsubmit="return validarFormulario_signup()">
+            <h1>Crear Cuenta</h1>
+            <div class="iconos">
+                <a href="#" class="icono"><i class="fa-brands fa-google-plus-g"></i></a>
+                <a href="#" class="icono"><i class="fa-brands fa-github"></i></a>
+                <a href="#" class="icono"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+            <span class="signup_comment" id="signup_comment"></span>
+            <input class="input_text" type="text" placeholder="Usuario" id="usuario_sign" name='usuario_sign'>
+            <input class="input_text" type="text" placeholder="Correo" id="correo_sign" name='correo_sign'>
+            <div class="input-container">
+                <input class="input_contra" type="password" placeholder="Contraseña" name="contra_sign" id="contra_sign">
+                <button type="button" class="mostrar_pass" onclick="toggle_password(this)">
+                    <i class="togglepassword fa-solid fa-eye-slash"></i>
+                </button>
+            </div>
+            <input class="boton" type="submit" value="Sign up">
+            </form>
+        </div>
+        <div class="form_c login" id="login">
+            <form action="/login" method="POST" onsubmit="return validarFormulario_login()">
+            <h1>Iniciar sesion</h1>
+            <div class="iconos">
+                <a href="#" class="icono"><i class="fa-brands fa-google-plus-g"></i></a>
+                <a href="#" class="icono"><i class="fa-brands fa-github"></i></a>
+                <a href="#" class="icono"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+            <span class="login_comment" id="login_comment">
+                {% if error %}
+                    {{error}}
+                {% endif %}
+            </span>
+            <input class="input_text" type="text" placeholder="Usuario" name="usuario" id="usuario">
+            <div class="input-container">
+                <input class="input_contra" type="password" placeholder="Contraseña" name="contra" id="contra">
+                <button type="button" class="mostrar_pass" onclick="toggle_password(this)">
+                    <i class="togglepassword fa-solid fa-eye-slash"></i>
+                </button>
+            </div>
+            <a href="#">He olvidado la Contraseña</a>
+            <input class="boton" type="submit" value="Login">
+            </form>
+        </div>
+        <div class="contenedor_toggle" id="toggle">
+            <div class="toggle">
+            <h1 class="toggleTittle">Listo para llevar tus habilidades al siguiente nivel?</h1>
+            <p class="toggleA" class="notiene">¿No tiene una cuente? Cree una</p>
+            <button class="Switch" id="Switch" onclick=toggle_animation()>Crear cuenta</button>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+    <script>
+        window.onload = function() {
+            mostrarError();
+        };
+        function mostrarError(){
+            var error = document.getElementById("login_comment");
+            if (error.innerText == "Successful"){
+                error.innerText="Cuenta creada con exito";
+                error.style.color="green"
+            }
+        }
+    </script>
+</body>
+</html>

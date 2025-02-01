@@ -1,0 +1,15 @@
+
+<div class="storage_container" id='storage_container'>
+    {% for carpeta in carpetas %}
+    <div onclick="" class="folder">
+            <img class='folder_image' src="{{ url_for('static', filename='images/folder_icon.webp') }}" alt="Folder_image">
+            <p class="folder_name" data-codificado="{{ carpeta }}"></p>
+    </div>
+    {% endfor %}
+    {% for archivo in archivos %}
+    <div class="file">
+            <img class="folder_image" src="{{ url_for('static', filename='images/file.webp') }}" alt="Folder_image">
+            <p class="file_name" data-codificado="{{ archivo }}"></p>
+    </div>
+    {% endfor %}
+</div>

@@ -1,0 +1,58 @@
+
+<!-- Renombrar carpeta Popup -->
+<div id="renombrar_carpeta_popup" class="crear_carpeta_popup" onclick="cerrar_renombrar()">
+    <div class="carpeta_div" onclick="event.stopPropagation();">
+        <input type="text" name="nombre_carpeta" id="nuevo_nombre_carpeta" class="nombre_carpeta">
+        <button class="cancelar_boton_renombrar" onclick="cerrar_renombrar()">Cancelar</button>
+        <input type="submit" value="Renombrar" class="crear_boton" onclick="renombrar_carpeta_envio()">
+    </div>
+</div>
+<!-- Click derecho Popup -->
+<div id="contextMenu">
+    <ul style="color: #373737;">
+        <li id="rename">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: #373737;transform: translateY(5px);margin-right: 5px;"><path d="M19.045 7.401c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.378-.378-.88-.586-1.414-.586s-1.036.208-1.413.585L4 13.585V18h4.413L19.045 7.401zm-3-3 1.587 1.585-1.59 1.584-1.586-1.585 1.589-1.584zM6 16v-1.585l7.04-7.018 1.586 1.586L7.587 16H6zm-2 4h16v2H4z"></path></svg>
+            Renombrar
+        </li>
+        <li id="delete">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: #373737;transform: translateY(5px);margin-right: 5px;"><path d="M5 20a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8h2V6h-4V4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2H3v2h2zM9 4h6v2H9zM8 8h9v12H7V8z"></path><path d="M9 10h2v8H9zm4 0h2v8h-2z"></path></svg>
+            Eliminar
+        </li>
+        <li id="share">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 640 512" style="fill: #373737;transform: translateY(5px);margin-right: 5px;"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+            Compartir Enlace
+        </li>
+        <li id="download">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: #373737;transform: translateY(5px);margin-right: 5px;"><path d="m12 16 4-5h-3V4h-2v7H8z"></path><path d="M20 18H4v-7H2v7c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2v-7h-2v7z"></path></svg>
+            Descargar
+        </li>
+    </ul>
+</div>  
+<!-- Ver archivos de texto Popup -->
+<div id="popup" class="popup">
+    <div class="popup-contenido">
+        <span class="cerrar" onclick="cerrarPopup()">&times;</span>
+        <h2 class="titulo_archivo" id="nombre_archivo"></h2>
+        <div>
+            <textarea id="editor"></textarea>
+            <button id="guardarCambios" onclick="guardarArchivo()">Guardar</button>
+
+        </div>
+    </div>
+</div>
+<!-- Subir archivos Popup -->
+<div class="upload_popup">
+    <span class="cerrar" onclick="cerrar_upload()">&times;</span>
+    <div id="error_message" class="upload_message_error"> </div>
+    <div class="upload_contenido">
+        <input type="file" class="filepond" name="file" multiple>
+    </div>
+</div>
+<!-- Crear carpeta Popup -->
+<div id="crear_carpeta_popup" class="crear_carpeta_popup" onclick="cerrar_carpeta()">
+    <div class="carpeta_div" onclick="event.stopPropagation();">
+        <input type="text" name="nombre_carpeta" id="nombre_carpeta" class="nombre_carpeta">
+        <button class="cancelar_boton" onclick="cerrar_carpeta()">Cancelar</button>
+        <input type="submit" value="Crear" class="crear_boton" onclick="crear_carpeta_envio()">
+    </div>
+</div>
