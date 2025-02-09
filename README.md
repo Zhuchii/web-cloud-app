@@ -2,6 +2,8 @@
 Una app (aun en desarrollo) de almacenamiento en la nube creada con flask.
 Este es un proyecto personal que comenze a hacer para aprender javascript y sumergirme un poco en el mundo del desarrollo web.
 
+![image](https://github.com/user-attachments/assets/7f397981-8261-4e4a-b432-93a6149a325c)
+
 ## ¿Como hacer que funcione?
 
 ### 1. config.json
